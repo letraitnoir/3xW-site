@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /espace.html
+
+Sitemap: https://3xw.com/sitemap.xml
