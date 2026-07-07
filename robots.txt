@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /espace.html
 
-Sitemap: https://3xw.com/sitemap.xml
+Sitemap: https://3xw.fr/sitemap.xml
