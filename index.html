@@ -116,6 +116,7 @@
   .mobile-menu.open a:nth-child(3){transition-delay:.18s}
   .mobile-menu.open a:nth-child(4){transition-delay:.24s}
   .mobile-menu.open a:nth-child(5){transition-delay:.30s}
+  .mobile-menu.open a:nth-child(6){transition-delay:.36s}
   .mobile-menu a.cta{color:var(--accent);border-bottom:0;margin-top:12px}
   .mobile-menu a.login{color:var(--muted)}
   body.menu-open{overflow:hidden}
@@ -314,6 +315,24 @@
   .form-err{color:var(--accent);font-size:.9rem;display:none}
   .form-err.show{display:block}
 
+  /* ---------- AUDIT OFFERT (le petit plus) ---------- */
+  #audit{background:radial-gradient(60% 60% at 22% 28%, rgba(255,74,46,.08), transparent 60%), var(--bg)}
+  .audit-card{border:1px solid var(--line);border-radius:22px;padding:clamp(28px,5vw,58px);background:linear-gradient(180deg,rgba(255,255,255,.025),transparent);max-width:920px;margin-inline:auto}
+  .audit-label{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+  .audit-label::before{content:"";width:34px;height:1px;background:var(--accent)}
+  .audit-card h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4.6vw,3.1rem);line-height:1.03;letter-spacing:-.02em;margin-bottom:18px}
+  .audit-card h2 em{font-style:normal;color:var(--accent)}
+  .audit-sub{color:#c9c6be;font-weight:300;font-size:clamp(1rem,1.5vw,1.15rem);max-width:62ch}
+  .audit-sub b{color:var(--ink);font-weight:600}
+  .audit-form{display:grid;grid-template-columns:1fr 1fr;gap:26px 28px;margin-top:36px}
+  .audit-form .field.full{grid-column:1/-1}
+  @media(max-width:640px){.audit-form{grid-template-columns:1fr}}
+  #audit .field textarea{min-height:64px}
+  #audit #amsg:placeholder-shown:not(:focus)~label{top:12px;font-size:1.05rem;letter-spacing:normal;text-transform:none;color:var(--muted)}
+  .audit-actions{grid-column:1/-1;display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:2px}
+  .audit-note{color:var(--muted);font-size:.85rem;font-weight:300}
+  .audit-note b{color:#c9c6be;font-weight:600}
+
   /* ---------- FOOTER ---------- */
   footer{padding:70px 0 40px;border-top:1px solid var(--line)}
   .foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;align-items:flex-end}
@@ -448,6 +467,7 @@
         <a href="#manifesto">Approche</a>
         <a href="#services">Offres</a>
         <a href="#work">Projets</a>
+        <a href="#audit">Audit offert</a>
         <a href="espace.html" class="login">Espace client</a>
         <a href="#contact" class="cta">Démarrer un projet</a>
       </div>
@@ -459,6 +479,7 @@
       <a href="#manifesto">Approche</a>
       <a href="#services">Offres</a>
       <a href="#work">Projets</a>
+      <a href="#audit">Audit offert</a>
       <a href="espace.html" class="login">Espace client</a>
       <a href="#contact" class="cta">Démarrer un projet</a>
     </div>
@@ -675,6 +696,31 @@
     </div>
   </section>
 
+  <!-- AUDIT OFFERT (le petit plus) -->
+  <section id="audit" class="sec">
+    <div class="wrap">
+      <div class="audit-card reveal">
+        <div class="audit-label">Le petit plus · offert</div>
+        <h2>Tu as déjà un site ?<br>Je le regarde. <em>À la main.</em></h2>
+        <p class="audit-sub">Colle son adresse. Je prends le temps de l'ausculter pour de vrai — pas un score craché par un robot — et je te renvoie une <b>vidéo perso</b> : ce qui va, ce qui coince, et le petit truc qui changerait tout. Gratuit, sans engagement.</p>
+        <form id="auditForm" novalidate>
+          <div class="audit-form">
+            <div class="field"><input type="text" id="aurl" inputmode="url" autocomplete="url" required><label for="aurl">L'adresse de ton site</label></div>
+            <div class="field"><input type="email" id="aemail" autocomplete="email" required><label for="aemail">Ton email</label></div>
+            <div class="field full"><textarea id="amsg" placeholder=" "></textarea><label for="amsg">Ce qui te chiffonne / ton objectif (facultatif)</label></div>
+            <input type="text" id="acompany" name="acompany" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:0;height:0;opacity:0">
+            <div class="audit-actions">
+              <button class="btn" type="submit">Recevoir mon audit vidéo</button>
+              <span class="audit-note"><b>Gratuit</b> · réponse en vidéo perso sous 48 h · sans engagement</span>
+            </div>
+          </div>
+          <div class="form-ok" style="margin-top:20px">Reçu ! Je regarde ton site et je t'envoie ta vidéo perso sous 48 h. À très vite.</div>
+          <div class="form-err" style="margin-top:20px">Oups, l'envoi n'a pas abouti. Écris-moi à contact@3xw.fr avec l'adresse de ton site, je m'en occupe.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" class="sec">
     <div class="wrap contact-grid">
@@ -717,6 +763,7 @@
       <div class="foot-meta">
         <a href="#services">Offres</a>
         <a href="#work">Projets</a>
+        <a href="#audit">Audit offert</a>
         <a href="#contact">Contact</a>
         <a href="espace.html">Espace client</a>
         <a href="mailto:contact@3xw.fr">contact@3xw.fr</a>
@@ -1010,6 +1057,38 @@
         if(!res.ok) throw new Error('HTTP '+res.status);
         form.reset(); okEl.classList.add('show');
       }catch(err){ mailtoFallback(name,mail,proj,msg); errEl.classList.add('show'); }
+      finally{ btn.disabled=false; btn.textContent=lbl; }
+    });
+  })();
+
+  /* ---------------- AUDIT OFFERT (Supabase → table audits, repli mailto) ---------------- */
+  (function(){
+    const form=document.getElementById('auditForm');
+    if(!form) return;
+    const okEl=form.querySelector('.form-ok'), errEl=form.querySelector('.form-err'), btn=form.querySelector('button[type=submit]');
+    function normUrl(u){ u=(u||'').trim(); if(!u) return ''; if(!/^https?:\/\//i.test(u)) u='https://'+u; return u; }
+    function mailtoFallback(url,mail,msg){
+      const subject=encodeURIComponent('Demande d’audit — '+url);
+      const body=encodeURIComponent('Site à auditer : '+url+'\nEmail : '+mail+'\n\nContexte :\n'+(msg||'—'));
+      window.location.href='mailto:contact@3xw.fr?subject='+subject+'&body='+body;
+    }
+    form.addEventListener('submit',async e=>{
+      e.preventDefault();
+      if(form.acompany && form.acompany.value) return;            // honeypot anti-bot
+      okEl.classList.remove('show'); errEl.classList.remove('show');
+      const url=normUrl(form.aurl.value), mail=form.aemail.value.trim(), msg=form.amsg.value.trim();
+      let ok=true;
+      if(!url || !/\.[a-z]{2,}/i.test(url)){ ok=false; form.aurl.style.borderColor='var(--accent)'; } else { form.aurl.style.borderColor=''; }
+      if(!mail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){ ok=false; form.aemail.style.borderColor='var(--accent)'; } else { form.aemail.style.borderColor=''; }
+      if(!ok) return;
+      if(!SUPA_OK){ mailtoFallback(url,mail,msg); okEl.classList.add('show'); return; }
+      btn.disabled=true; const lbl=btn.textContent; btn.textContent='Envoi…';
+      try{
+        const H={'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Prefer':'return=minimal'};
+        const res=await fetch(SUPABASE_URL+'/rest/v1/audits',{method:'POST',headers:H,body:JSON.stringify({url:url,email:mail,message:msg||null,source:'site'})});
+        if(!res.ok) throw new Error('HTTP '+res.status);
+        form.reset(); okEl.classList.add('show');
+      }catch(err){ mailtoFallback(url,mail,msg); errEl.classList.add('show'); }
       finally{ btn.disabled=false; btn.textContent=lbl; }
     });
   })();
